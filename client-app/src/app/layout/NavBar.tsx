@@ -2,14 +2,12 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 // import { Link, NavLink } from 'react-router-dom';
 import { Button, Container, Dropdown, Image, Menu } from "semantic-ui-react";
+import { useStore } from "../stores/store";
 // import { useStore } from '../stores/store';
 
-interface Props {
-    openForm: () => void;
-}
-
-export default function Navbar({openForm}: Props) {
+export default function Navbar() {
 	//   const { userStore: { user, logout } } = useStore();
+    const { activityStore } = useStore();
 	return (
 		<Menu inverted fixed="top">
 			<Container>
@@ -23,7 +21,7 @@ export default function Navbar({openForm}: Props) {
 				</Menu.Item>
 				<Menu.Item name="Activities" />
 				<Menu.Item>
-					<Button onClick={openForm} positive content="Create Activity" />
+					<Button onClick={()=> activityStore.openForm()} positive content="Create Activity" />
 				</Menu.Item>
 			</Container>
 		</Menu>
