@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import { Grid } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
+import ActivityFilter from "./ActivityFilter";
 import ActivityList from "./ActivityList";
 
 export default observer(function ActivityDashboard() {
 	const { activityStore } = useStore();
-    const { loadActivities, activityRegistry } = activityStore; 
+	const { loadActivities, activityRegistry } = activityStore;
 
 	useEffect(() => {
 		if (activityRegistry.size <= 1) loadActivities();
@@ -18,12 +19,13 @@ export default observer(function ActivityDashboard() {
 
 	return (
 		<Grid>
-			<Grid.Column width="10">
+			<Grid.Column width="2" />
+			<Grid.Column width="8">
 				<ActivityList />
 			</Grid.Column>
 			<Grid.Column width="6">
-                <h2>Activity Filter</h2>
+				<ActivityFilter />
 			</Grid.Column>
 		</Grid>
 	);
-})
+});
