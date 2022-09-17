@@ -42,7 +42,7 @@ function App() {
 							/>
 							<Route path="/errors" component={TestErrors} />
               <Route path="/server-error" component={ServerError} />
-							<Route component={NotFound} />
+							{/* <Route component={NotFound} /> */}
 						</Switch>
 						<Container />
 					</>
